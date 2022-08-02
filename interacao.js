@@ -69,7 +69,7 @@ function proporcional() {
     var taxaproporcional = document.getElementById("taxaproporcional")
 
     if (valor === 65 || valor === 75 || valor === 80 || valor === 85 || valor === 90 || valor === 100 || valor === 120){
-        var resultado = juros * atraso + multa + valor + diasDeUso15 + (proporcional * (valor / 30))
+        var resultado = juros * atraso + multa + valor + diasDeUso15 + proporcional * ajuste(valor / 30,2)
         exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
         creditoproporcional.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 / 100),2)}`
         taxaproporcional.innerHTML = `R$ ${ajuste(resultado * 4 / 100,2)}`
