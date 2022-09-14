@@ -12,7 +12,6 @@ function calculaDatas() {
 
 }
 
-
 function atualizar() {
     var exibicao = document.getElementById("exibir")
     var valor = Number(document.getElementById("valor").value)
@@ -22,15 +21,11 @@ function atualizar() {
     var taxa = document.getElementById('taxa')
     var atraso = calculaDatas()
 
-    if (valor === 65 || valor === 75 || valor === 80 || valor === 85 || valor === 90 || valor === 100 || valor === 120){
-        var resultado = juros * atraso + multa + valor
-        exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
-        credito.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 /100),2)}`
-        taxa.innerHTML = `R$ ${ajuste(resultado * 4 / 100, 2)}`
-    }else {
-        alert('Plano inexistente')
-    }
-    
+    var resultado = juros * atraso + multa + valor
+    exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
+    credito.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 /100),2)}`
+    taxa.innerHTML = `R$ ${ajuste(resultado * 4 / 100, 2)}`
+  
     negociar()
 }
 
@@ -44,14 +39,10 @@ function negociar() {
     var juros15credito = document.getElementById("juros15credito")
     var juros15taxa = document.getElementById("juros15taxa")
 
-    if (valor === 65 || valor === 75 || valor === 80 || valor === 85 || valor === 90 || valor === 100 || valor === 120){
-        var resultado = juros * atraso + multa + valor + diasDeUso15
-        exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
-        juros15credito.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 / 100),2)}`
-        juros15taxa.innerHTML = `R$ ${ajuste(resultado * 4 / 100,2)}`
-    } else {
-        alert('Plano inexistente')
-    }
+    var resultado = juros * atraso + multa + valor + diasDeUso15
+    exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
+    juros15credito.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 / 100),2)}`
+    juros15taxa.innerHTML = `R$ ${ajuste(resultado * 4 / 100,2)}`
 
     proporcional()
     descricao(valor/30,juros,atraso,multa,diasDeUso15)
@@ -68,14 +59,10 @@ function proporcional() {
     var creditoproporcional = document.getElementById("creditoproporcional")
     var taxaproporcional = document.getElementById("taxaproporcional")
 
-    if (valor === 65 || valor === 75 || valor === 80 || valor === 85 || valor === 90 || valor === 100 || valor === 120){
-        var resultado = juros * atraso + multa + valor + diasDeUso15 + proporcional * ajuste(valor / 30,2)
-        exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
-        creditoproporcional.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 / 100),2)}`
-        taxaproporcional.innerHTML = `R$ ${ajuste(resultado * 4 / 100,2)}`
-    } else {
-        alert('Plano inexistente')
-    }
+    var resultado = juros * atraso + multa + valor + diasDeUso15 + proporcional * ajuste(valor / 30,2)
+    exibicao.innerHTML = `R$ ${ajuste(resultado,2)}`
+    creditoproporcional.innerHTML = `R$ ${ajuste(resultado + (resultado * 4 / 100),2)}`
+    taxaproporcional.innerHTML = `R$ ${ajuste(resultado * 4 / 100,2)}`
 }
 
 function descricao(parametro1,parametro2,parametro3,parametro4,parametro5) {
